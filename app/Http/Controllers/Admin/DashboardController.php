@@ -10,7 +10,9 @@ class DashboardController extends Controller
     public function index()
     {
         $stats = [
-            'total_employees' => Employee::where('status', 'active')->count(),
+            'total_employees' => Employee::count(),
+            'active_employees' => Employee::where('status', 'active')->count(),
+            'inactive_employees' => Employee::where('status', 'inactive')->count(),
             'total_leads' => 100,
             'total_qualified' => 50,
             'total_products' => 30,
